@@ -1,7 +1,7 @@
 import Header from 'src/components/Header';
-
 import Sidebar from 'src/components/Sidebar';
 import Summary from 'src/pages/Summary';
+import { DataContextProvider } from 'src/context/DataContext';
 
 import './style.css';
 
@@ -13,12 +13,12 @@ import './style.css';
 
 export default function App() {
   return (
-    <>
+    <DataContextProvider>
       <Header />
       <main>
         <Summary />
         <Sidebar />
       </main>
-    </>
+    </DataContextProvider>
   );
 }
