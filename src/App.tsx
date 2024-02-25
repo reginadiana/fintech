@@ -5,20 +5,16 @@ import { DataContextProvider } from 'src/context/DataContext';
 
 import './style.css';
 
-/**
- * TODO: 22/02/24
- * - Estou na aula 0402 Páginas e Hooks
- * - Parei em 01:21
- */
-
 export default function App() {
   return (
     <DataContextProvider>
-      <Header />
-      <main>
-        <Summary />
+      <div className="container">
         <Sidebar />
-      </main>
+        <main>
+          <Header />
+          <Summary />
+        </main>
+      </div>
     </DataContextProvider>
   );
 }
