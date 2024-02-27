@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useData } from 'src/context/DataContext';
 import DateInput from 'src/components/DateInput';
 
 export default function DangeRange() {
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const { startDate, endDate, setStartDate, setEndDate } = useData();
 
   return (
     <form className="box flex" onSubmit={(e) => e.preventDefault()}>
