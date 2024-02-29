@@ -48,7 +48,7 @@ de .flex */
   flex: 1;
 }
 
-.md {
+.mb {
   margin-bottom: var(--gap);
 }
 

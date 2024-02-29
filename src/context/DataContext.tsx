@@ -8,7 +8,7 @@ import {
 } from 'react';
 import useFetch from 'src/hooks/useFetch';
 
-type SaleType = {
+type Sale = {
   id: string;
   nome: string;
   preco: string;
@@ -18,7 +18,7 @@ type SaleType = {
 };
 
 type DataContextType = {
-  data: SaleType[] | null;
+  data: Sale[] | null;
   loading: boolean;
   error: string | null;
 
@@ -57,7 +57,7 @@ export const DataContextProvider = ({ children }: PropsWithChildren) => {
   const [startDate, setStartDate] = useState(getDate({ daysAgo: 30 }));
   const [endDate, setEndDate] = useState(getDate({ daysAgo: 0 }));
 
-  const { data, loading, error } = useFetch<SaleType[] | null>(
+  const { data, loading, error } = useFetch<Sale[] | null>(
     `https://data.origamid.dev/vendas/?inicio=${startDate}&final=${endDate}`
   );
 
