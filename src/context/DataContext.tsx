@@ -8,11 +8,19 @@ import {
 } from 'react';
 import useFetch from 'src/hooks/useFetch';
 
-type Sale = {
+export enum Status {
+  PAID = 'pago',
+  PROCESSING = 'processando',
+  FAIL = 'falha',
+}
+
+type StatusSale = Status.PAID | Status.PROCESSING | Status.FAIL;
+
+export type Sale = {
   id: string;
   nome: string;
-  preco: string;
-  status: 'pago' | 'processando' | 'falha';
+  preco: number;
+  status: StatusSale;
   data: string;
   parcelas: number | null;
 };

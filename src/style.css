@@ -39,6 +39,7 @@ ul {
 
 .flex {
   display: flex;
+  /* flex-wrap: wrap; */
   gap: var(--gap);
 }
 
@@ -76,4 +77,16 @@ de .flex */
   display: grid;
   padding: var(--gap);
   gap: var(--gap);
+}
+
+/* Summary */
+.summary {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.summary h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--gap);
+  color: var(--color-1);
 }
