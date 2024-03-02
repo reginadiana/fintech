@@ -32,7 +32,7 @@ h1, h2, h3 {
   margin: 0;
 }
 
-ul {
+ul, li {
   list-style: none;
   padding: 0;
 }
@@ -89,4 +89,23 @@ de .flex */
   font-size: 1.5rem;
   margin-bottom: var(--gap);
   color: var(--color-1);
+}
+
+/* Sales */
+.sale {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: var(--gap);
+  margin-bottom: var(--gap-s);
+}
+
+.sale div:last-child {
+  justify-self: end;
+}
+
+.sale a {
+  text-decoration: none;
+
+  /* Cor herdada */
+  color: inherit;
 }

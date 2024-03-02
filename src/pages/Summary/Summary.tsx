@@ -1,8 +1,5 @@
 import { useData, Sale, Status } from 'src/context/DataContext';
-
-function toCurrency(value: number) {
-  return value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-}
+import { toCurrency } from 'src/currency';
 
 function getTotalPriceFromSales(sales: Sale[]) {
   return sales.reduce((acc, item) => acc + item.preco, 0);
@@ -11,7 +8,7 @@ function getTotalPriceFromSales(sales: Sale[]) {
 export default function Summary() {
   const { data: sales, loading } = useData();
 
-  if (loading) return <span>Carregando...</span>;
+  if (loading) return <span>Carregando resumo...</span>;
   if (sales === null) return <span>Nenhuma venda foi encontrada</span>;
 
   const processing = sales.filter(({ status }) => status === Status.PROCESSING);
@@ -37,7 +34,7 @@ export default function Summary() {
         </div>
       </div>
 
-      <div className="box">Gráficos</div>
+      <div className="box mb">Gráficos</div>
     </section>
   );
 }
