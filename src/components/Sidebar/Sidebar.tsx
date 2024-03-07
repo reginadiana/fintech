@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import FintechSVG from 'src/assets/FintechSVG';
 import {
   ConfigsSVG,
@@ -17,14 +18,14 @@ export default function Sidebar() {
           <span>
             <img src={SummarySVG} alt="" />
           </span>
-          <a href="">Resumo</a>
+          <NavLink to="">Resumo</NavLink>
         </li>
 
         <li>
           <span>
             <img src={SalesSVG} alt="" />
           </span>
-          <a href="">Vendas</a>
+          <NavLink to="vendas">Vendas</NavLink>
         </li>
 
         <li>
