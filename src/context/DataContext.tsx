@@ -23,6 +23,7 @@ export type Sale = {
   status: StatusSale;
   data: string;
   parcelas: number | null;
+  pagamento: string;
 };
 
 type DataContextType = {
