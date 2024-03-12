@@ -1,3 +1,4 @@
+import SalesCharts from 'src/components/SalesCharts';
 import { useData, Sale, Status } from 'src/context/DataContext';
 import { toCurrency } from 'src/currency';
 
@@ -34,7 +35,9 @@ export default function Summary() {
         </div>
       </div>
 
-      <div className="box mb">Gráficos</div>
+      <div className="box mb">
+        <SalesCharts sales={sales} />
+      </div>
     </section>
   );
 }
