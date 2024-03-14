@@ -34,10 +34,43 @@ type Props = {
   sales: Sale[];
 };
 
+type DaySale = {
+  data: string;
+  pago: number;
+  processando: number;
+  falha: number;
+};
+
+function transformData(data: Sale[]): DaySale[] {
+  const days = data.reduce((acc: { [key: string]: DaySale }, item) => {
+    const day = item.data.split(' ')[0];
+
+    if (!acc[day]) {
+      acc[day] = {
+        data: day,
+        pago: 0,
+        falha: 0,
+        processando: 0,
+      };
+    }
+
+    acc[day][item.status] += item.preco;
+
+    return acc;
+  }, {});
+
+  return Object.values(days).map((day) => ({
+    ...day,
+    data: day.data.substring(5),
+  }));
+}
+
 export default function SalesCharts({ sales }: Props) {
+  const transformadedData = transformData(sales);
+
   return (
     <ResponsiveContainer width={'99%'} height={400}>
-      <LineChart data={CHARTS_MOCK}>
+      <LineChart data={transformadedData}>
         <XAxis dataKey="data" />
         <YAxis />
         <Tooltip />
